@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AE71ABC42479A35100C3CE9D /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71ABC32479A35100C3CE9D /* RankingViewController.swift */; };
+		AE71ABC8247AF3A700C3CE9D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71ABC7247AF3A700C3CE9D /* ListTableViewController.swift */; };
+		AE71ABCA247B076800C3CE9D /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71ABC9247B076800C3CE9D /* ListTableViewCell.swift */; };
 		AE8941BD2474021100F9814E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8941BC2474021100F9814E /* AppDelegate.swift */; };
 		AE8941BF2474021100F9814E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8941BE2474021100F9814E /* SceneDelegate.swift */; };
 		AE8941C12474021100F9814E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8941C02474021100F9814E /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		AE71ABC32479A35100C3CE9D /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		AE71ABC7247AF3A700C3CE9D /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		AE71ABC9247B076800C3CE9D /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		AE8941B92474021100F9814E /* ShiritoriWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShiritoriWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8941BC2474021100F9814E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE8941BE2474021100F9814E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,9 +73,11 @@
 				AE8941C52474021500F9814E /* Assets.xcassets */,
 				AE8941C72474021500F9814E /* LaunchScreen.storyboard */,
 				AE8941CA2474021500F9814E /* Info.plist */,
+				AE71ABC32479A35100C3CE9D /* RankingViewController.swift */,
 				AE8941D02474039F00F9814E /* GameViewController.swift */,
 				AE8941D22474298900F9814E /* CameraViewController.swift */,
-				AE71ABC32479A35100C3CE9D /* RankingViewController.swift */,
+				AE71ABC7247AF3A700C3CE9D /* ListTableViewController.swift */,
+				AE71ABC9247B076800C3CE9D /* ListTableViewCell.swift */,
 			);
 			path = ShiritoriWalk;
 			sourceTree = "<group>";
@@ -148,7 +154,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE8941D12474039F00F9814E /* GameViewController.swift in Sources */,
+				AE71ABCA247B076800C3CE9D /* ListTableViewCell.swift in Sources */,
 				AE8941D32474298900F9814E /* CameraViewController.swift in Sources */,
+				AE71ABC8247AF3A700C3CE9D /* ListTableViewController.swift in Sources */,
 				AE8941C12474021100F9814E /* ViewController.swift in Sources */,
 				AE8941BD2474021100F9814E /* AppDelegate.swift in Sources */,
 				AE8941BF2474021100F9814E /* SceneDelegate.swift in Sources */,

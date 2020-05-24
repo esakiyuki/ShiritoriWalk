@@ -12,6 +12,12 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBOutlet var cameraImageView: UIImageView!
     
+    @IBOutlet var mojiTextField: UITextField!
+//    var mojiArray: [Waking<String, String>] = []
+    var mojiArray: [Dictionary<String, String>] = []
+    let saveData = UserDefaults.standard
+    
+    
 //    @IBOutlet var mojilabel: UILabel!
     
     @IBAction func takePhoto() {
@@ -31,12 +37,32 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         
     }
     
-    @IBAction func input() {
+    @IBAction func saveMoji() {
+        let mojiWaking = ["moji": mojiTextField.text!]
+        mojiArray.append(mojiWaking)
+        saveData.set(mojiArray, forKey: "MOJI")
         
+        let alert = UIAlertController(
+            title: "入力完了", message: "文字の入力が完了しました", preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(
+            title: "OK", style: .default, handler: nil
+        ))
+        present(alert, animated: true, completion: nil)
+        mojiTextField.text = ""
     }
+    
+//    @IBAction func input() {
+//
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var mojiArray: [Dictionary<String, String>] = []
+        if saveData.array(forKey: "MOJI") != nil {
+            mojiArray = saveData.array(forKey: "MOJI") as! [Dictionary<String, String>]
+        }
 
         // Do any additional setup after loading the view.
     }
