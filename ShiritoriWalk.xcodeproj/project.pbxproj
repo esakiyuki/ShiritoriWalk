@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE17F34B247B1FC2007F383E /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17F34A247B1FC2007F383E /* ScoreViewController.swift */; };
 		AE71ABC42479A35100C3CE9D /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71ABC32479A35100C3CE9D /* RankingViewController.swift */; };
 		AE71ABC8247AF3A700C3CE9D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71ABC7247AF3A700C3CE9D /* ListTableViewController.swift */; };
 		AE71ABCA247B076800C3CE9D /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71ABC9247B076800C3CE9D /* ListTableViewCell.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE17F34A247B1FC2007F383E /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		AE71ABC32479A35100C3CE9D /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		AE71ABC7247AF3A700C3CE9D /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		AE71ABC9247B076800C3CE9D /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				AE8941D22474298900F9814E /* CameraViewController.swift */,
 				AE71ABC7247AF3A700C3CE9D /* ListTableViewController.swift */,
 				AE71ABC9247B076800C3CE9D /* ListTableViewCell.swift */,
+				AE17F34A247B1FC2007F383E /* ScoreViewController.swift */,
 			);
 			path = ShiritoriWalk;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				AE8941BD2474021100F9814E /* AppDelegate.swift in Sources */,
 				AE8941BF2474021100F9814E /* SceneDelegate.swift in Sources */,
 				AE71ABC42479A35100C3CE9D /* RankingViewController.swift in Sources */,
+				AE17F34B247B1FC2007F383E /* ScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
