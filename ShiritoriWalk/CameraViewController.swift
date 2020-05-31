@@ -12,7 +12,6 @@ import RealmSwift
 class CameraViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet var cameraImageView: UIImageView!
-    
     @IBOutlet var tangoTextField: UITextField!
     @IBOutlet var kazuTextField: UITextField!
     
@@ -45,6 +44,13 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         let newAddress = Address()
         newAddress.tango = tangoTextField.text!
         newAddress.kazu = Int(kazuTextField.text!)!
+//        newAddress.photo = cameraImageView.image!
+        let alert = UIAlertController(
+                    title: "入力完了", message: "文字の入力が完了しました", preferredStyle: .alert
+                )
+                alert.addAction(UIAlertAction(
+                    title: "OK", style: .default, handler: nil
+                ))
         
         try! realm.write {
             realm.add(newAddress)

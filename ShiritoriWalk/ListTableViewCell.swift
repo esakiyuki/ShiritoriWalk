@@ -10,6 +10,7 @@ import UIKit
 
 class ListTableViewCell: UITableViewCell {
     
+//    @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var tangoLabel: UILabel!
     @IBOutlet var kazuLabel: UILabel!
 

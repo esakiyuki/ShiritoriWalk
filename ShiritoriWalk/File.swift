@@ -12,4 +12,6 @@ import RealmSwift
 class Address: Object {
     @objc dynamic var tango: String = ""
     @objc dynamic var kazu: Int = 0
+//    @objc dynamic var image = Data()
+//    @objc dynamic var image: UIImage? = nil
 }
