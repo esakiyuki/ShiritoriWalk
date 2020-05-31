@@ -7,14 +7,28 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ListTableViewController: UITableViewController {
     
-    var mojiArray: [Dictionary<String, String>] = []
-    let saveData = UserDefaults.standard
+//    var mojiArray: [Dictionary<String, String>] = []
+//    let saveData = UserDefaults.standard
+    
+    let realm = try! Realm()
+    let addresses = try! Realm().objects(Address.self)
+    let NotificationToken: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        notificationToken = addresses.observe { [weak self] _ in
+            self?.tableView.reloadData()
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -25,10 +39,10 @@ class ListTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if saveData.array(forKey: "MOJI") != nil {
-            mojiArray = saveData.array(forKey: "MOJI") as! [Dictionary<String, String>]
-        }
-        tableView.reloadData()
+//        if saveData.array(forKey: "MOJI") != nil {
+//            mojiArray = saveData.array(forKey: "MOJI") as! [Dictionary<String, String>]
+//        }
+//        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -40,19 +54,25 @@ class ListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return mojiArray.count
+        
+        
+//        return mojiArray.count
+        return addresses.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListTableViewCell
-        
-        let nowIndexPathWaking = mojiArray[indexPath.row]
-        
-        cell.mojiLabel.text = nowIndexPathWaking["moji"]
+        cell.tangoLabel = addresses[indexPath.row].tango
+        cell.kazuLabel = String(addresses[indexPath.row].kazu)
 
-//         Configure the cell...
-
+//        let nowIndexPathWaking = mojiArray[indexPath.row]
+//
+//        cell.mojiLabel.text = nowIndexPathWaking["moji"]
+//
         return cell
+        
+        
     }
 
     /*

@@ -10,7 +10,8 @@ import UIKit
 
 class ListTableViewCell: UITableViewCell {
     
-    @IBOutlet var mojiLabel: UILabel!
+    @IBOutlet var tangoLabel: UILabel!
+    @IBOutlet var kazuLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

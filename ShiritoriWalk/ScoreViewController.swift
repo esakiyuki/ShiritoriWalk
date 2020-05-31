@@ -16,10 +16,16 @@ class ScoreViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-//    @IBAction func toTop() {
-//        self.dismiss(animated: true, completion: nil)
+    @IBAction func toTop() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+//    @IBAction func toTop(_ sender: Any) {
+//        let vc = UIStoryboard(name: "ViewController", bundle: Bundle.main)
+//            .instantiateViewController(withIdentifier: "ViewController") as! ViewController
+//        navigationController?.pushViewController(vc, animated: true)
 //    }
-//    
+    
 
     /*
     // MARK: - Navigation

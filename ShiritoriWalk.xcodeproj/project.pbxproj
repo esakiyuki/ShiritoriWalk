@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		AE17F34B247B1FC2007F383E /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17F34A247B1FC2007F383E /* ScoreViewController.swift */; };
+		AE60708C2482E57A000E8DE7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AE60708B2482E57A000E8DE7 /* Realm */; };
+		AE60708E2482E57A000E8DE7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AE60708D2482E57A000E8DE7 /* RealmSwift */; };
+		AE6070902482E63B000E8DE7 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE60708F2482E63B000E8DE7 /* File.swift */; };
 		AE71ABC42479A35100C3CE9D /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71ABC32479A35100C3CE9D /* RankingViewController.swift */; };
 		AE71ABC8247AF3A700C3CE9D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71ABC7247AF3A700C3CE9D /* ListTableViewController.swift */; };
 		AE71ABCA247B076800C3CE9D /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71ABC9247B076800C3CE9D /* ListTableViewCell.swift */; };
@@ -23,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		AE17F34A247B1FC2007F383E /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		AE60708F2482E63B000E8DE7 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		AE71ABC32479A35100C3CE9D /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		AE71ABC7247AF3A700C3CE9D /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		AE71ABC9247B076800C3CE9D /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -43,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE60708E2482E57A000E8DE7 /* RealmSwift in Frameworks */,
+				AE60708C2482E57A000E8DE7 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,7 @@
 				AE71ABC7247AF3A700C3CE9D /* ListTableViewController.swift */,
 				AE71ABC9247B076800C3CE9D /* ListTableViewCell.swift */,
 				AE17F34A247B1FC2007F383E /* ScoreViewController.swift */,
+				AE60708F2482E63B000E8DE7 /* File.swift */,
 			);
 			path = ShiritoriWalk;
 			sourceTree = "<group>";
@@ -101,6 +108,10 @@
 			dependencies = (
 			);
 			name = ShiritoriWalk;
+			packageProductDependencies = (
+				AE60708B2482E57A000E8DE7 /* Realm */,
+				AE60708D2482E57A000E8DE7 /* RealmSwift */,
+			);
 			productName = ShiritoriWalk;
 			productReference = AE8941B92474021100F9814E /* ShiritoriWalk.app */;
 			productType = "com.apple.product-type.application";
@@ -129,6 +140,9 @@
 				Base,
 			);
 			mainGroup = AE8941B02474021100F9814E;
+			packageReferences = (
+				AE60708A2482E57A000E8DE7 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = AE8941BA2474021100F9814E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -161,6 +175,7 @@
 				AE8941D32474298900F9814E /* CameraViewController.swift in Sources */,
 				AE71ABC8247AF3A700C3CE9D /* ListTableViewController.swift in Sources */,
 				AE8941C12474021100F9814E /* ViewController.swift in Sources */,
+				AE6070902482E63B000E8DE7 /* File.swift in Sources */,
 				AE8941BD2474021100F9814E /* AppDelegate.swift in Sources */,
 				AE8941BF2474021100F9814E /* SceneDelegate.swift in Sources */,
 				AE71ABC42479A35100C3CE9D /* RankingViewController.swift in Sources */,
@@ -368,6 +383,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AE60708A2482E57A000E8DE7 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AE60708B2482E57A000E8DE7 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE60708A2482E57A000E8DE7 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		AE60708D2482E57A000E8DE7 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE60708A2482E57A000E8DE7 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AE8941B12474021100F9814E /* Project object */;
 }

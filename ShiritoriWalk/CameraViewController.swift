@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CameraViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet var cameraImageView: UIImageView!
     
-    @IBOutlet var mojiTextField: UITextField!
-//    var mojiArray: [Waking<String, String>] = []
-    var mojiArray: [Dictionary<String, String>] = []
-    let saveData = UserDefaults.standard
+    @IBOutlet var tangoTextField: UITextField!
+    @IBOutlet var kazuTextField: UITextField!
+    
+    let realm = try! Realm()
+    
+//    var mojiArray: [Dictionary<String, String>] = []
+//    let saveData = UserDefaults.standard
     
     
 //    @IBOutlet var mojilabel: UILabel!
@@ -37,19 +41,30 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         
     }
     
-    @IBAction func saveMoji() {
-        let mojiWaking = ["moji": mojiTextField.text!]
-        mojiArray.append(mojiWaking)
-        saveData.set(mojiArray, forKey: "MOJI")
+    @IBAction func addAddress() {
+        let newAddress = Address()
+        newAddress.tango = tangoTextField.text!
+        newAddress.kazu = Int(kazuTextField.text!)!
         
-        let alert = UIAlertController(
-            title: "入力完了", message: "文字の入力が完了しました", preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(
-            title: "OK", style: .default, handler: nil
-        ))
-        present(alert, animated: true, completion: nil)
-        mojiTextField.text = ""
+        try! realm.write {
+            realm.add(newAddress)
+        }
+        
+        dismiss(animated: true, completion: nil)
+        
+        
+//        let mojiWaking = ["moji": mojiTextField.text!]
+//        mojiArray.append(mojiWaking)
+//        saveData.set(mojiArray, forKey: "SHIRITORI")
+//
+//        let alert = UIAlertController(
+//            title: "入力完了", message: "文字の入力が完了しました", preferredStyle: .alert
+//        )
+//        alert.addAction(UIAlertAction(
+//            title: "OK", style: .default, handler: nil
+//        ))
+//        present(alert, animated: true, completion: nil)
+//        mojiTextField.text = ""
     }
     
 //    @IBAction func input() {
@@ -59,10 +74,10 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var mojiArray: [Dictionary<String, String>] = []
-        if saveData.array(forKey: "MOJI") != nil {
-            mojiArray = saveData.array(forKey: "MOJI") as! [Dictionary<String, String>]
-        }
+//        var mojiArray: [Dictionary<String, String>] = []
+//        if saveData.array(forKey: "SHIRITORI") != nil {
+//            mojiArray = saveData.array(forKey: "SHIRITORI") as! [Dictionary<String, String>]
+//        }
 
         // Do any additional setup after loading the view.
     }
