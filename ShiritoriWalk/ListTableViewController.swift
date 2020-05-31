@@ -16,7 +16,11 @@ class ListTableViewController: UITableViewController {
     
     let realm = try! Realm()
     let addresses = try! Realm().objects(Address.self)
-    let NotificationToken: NotificationToken?
+    var notificationToken: NotificationToken?
+    
+    @IBAction func cancel() {
+           dismiss(animated: true, completion: nil)
+       }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,8 +67,8 @@ class ListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListTableViewCell
-        cell.tangoLabel = addresses[indexPath.row].tango
-        cell.kazuLabel = String(addresses[indexPath.row].kazu)
+        cell.tangoLabel.text = addresses[indexPath.row].tango
+        cell.kazuLabel.text = String(addresses[indexPath.row].kazu)
 
 //        let nowIndexPathWaking = mojiArray[indexPath.row]
 //

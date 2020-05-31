@@ -258,7 +258,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="一覧" id="fIG-Qj-mqi">
-                        <barButtonItem key="leftBarButtonItem" title="もどる" id="sNs-q5-1tf"/>
+                        <barButtonItem key="leftBarButtonItem" title="もどる" id="sNs-q5-1tf">
+                            <connections>
+                                <action selector="cancel" destination="U1Z-dm-2WI" id="q3Y-pY-uKi"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dfh-Lg-PuS">
                             <connections>
                                 <segue destination="GP2-Mg-CQG" kind="show" id="n9S-Nu-r3Y"/>

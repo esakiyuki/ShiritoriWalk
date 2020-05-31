@@ -67,6 +67,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
 //        mojiTextField.text = ""
     }
     
+    
 //    @IBAction func input() {
 //
 //    }
