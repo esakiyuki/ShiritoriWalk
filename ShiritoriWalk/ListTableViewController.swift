@@ -69,7 +69,9 @@ class ListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListTableViewCell
         cell.tangoLabel.text = addresses[indexPath.row].tango
         cell.kazuLabel.text = String(addresses[indexPath.row].kazu)
-//        cell.photoImageView.image = addresses[indexPath.row].camera
+        
+        
+//        cell.photoImageView.image = addresses[indexPath.row].picture
         
 
 //        let nowIndexPathWaking = mojiArray[indexPath.row]

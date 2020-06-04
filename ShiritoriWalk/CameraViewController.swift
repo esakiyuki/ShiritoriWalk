@@ -13,7 +13,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBOutlet var cameraImageView: UIImageView!
     @IBOutlet var tangoTextField: UITextField!
-    @IBOutlet var kazuTextField: UITextField!
+//    @IBOutlet var kazuTextField: UITextField!
     
     let realm = try! Realm()
     
@@ -43,21 +43,21 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBAction func addAddress() {
         let newAddress = Address()
         newAddress.tango = tangoTextField.text!
-        newAddress.kazu = Int(kazuTextField.text!)!
-//        newAddress.photo = cameraImageView.image!
-        let alert = UIAlertController(
-                    title: "入力完了", message: "文字の入力が完了しました", preferredStyle: .alert
-                )
-                alert.addAction(UIAlertAction(
-                    title: "OK", style: .default, handler: nil
-                ))
+//        newAddress.kazu = Int(kazuTextField.text!)!
+//        newAddress.picture = cameraImageView.image!
+        
+//        let alert = UIAlertController(
+//                    title: "入力完了", message: "文字の入力が完了しました", preferredStyle: .alert
+//                )
+//                alert.addAction(UIAlertAction(
+//                    title: "OK", style: .default, handler: nil
+//                ))
         
         try! realm.write {
             realm.add(newAddress)
         }
         
         dismiss(animated: true, completion: nil)
-        
         
 //        let mojiWaking = ["moji": mojiTextField.text!]
 //        mojiArray.append(mojiWaking)
@@ -71,6 +71,10 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
 //        ))
 //        present(alert, animated: true, completion: nil)
 //        mojiTextField.text = ""
+    }
+    
+    @IBAction func toTop() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     

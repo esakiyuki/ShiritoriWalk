@@ -17,7 +17,8 @@ class ScoreViewController: UIViewController {
     }
     
     @IBAction func toTop() {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
 //    @IBAction func toTop(_ sender: Any) {

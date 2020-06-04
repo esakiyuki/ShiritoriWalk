@@ -11,8 +11,8 @@ import UIKit
 class ListTableViewCell: UITableViewCell {
     
 //    @IBOutlet var photoImageView: UIImageView!
-    @IBOutlet var tangoLabel: UILabel!
-    @IBOutlet var kazuLabel: UILabel!
+//    @IBOutlet var tangoLabel: UILabel!
+//    @IBOutlet var kazuLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

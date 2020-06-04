@@ -12,8 +12,6 @@
 		AE60708E2482E57A000E8DE7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AE60708D2482E57A000E8DE7 /* RealmSwift */; };
 		AE6070902482E63B000E8DE7 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE60708F2482E63B000E8DE7 /* File.swift */; };
 		AE71ABC42479A35100C3CE9D /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71ABC32479A35100C3CE9D /* RankingViewController.swift */; };
-		AE71ABC8247AF3A700C3CE9D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71ABC7247AF3A700C3CE9D /* ListTableViewController.swift */; };
-		AE71ABCA247B076800C3CE9D /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71ABC9247B076800C3CE9D /* ListTableViewCell.swift */; };
 		AE8941BD2474021100F9814E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8941BC2474021100F9814E /* AppDelegate.swift */; };
 		AE8941BF2474021100F9814E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8941BE2474021100F9814E /* SceneDelegate.swift */; };
 		AE8941C12474021100F9814E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8941C02474021100F9814E /* ViewController.swift */; };
@@ -22,14 +20,13 @@
 		AE8941C92474021500F9814E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8941C72474021500F9814E /* LaunchScreen.storyboard */; };
 		AE8941D12474039F00F9814E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8941D02474039F00F9814E /* GameViewController.swift */; };
 		AE8941D32474298900F9814E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8941D22474298900F9814E /* CameraViewController.swift */; };
+		AED3E1A92489720200A242A2 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3E1A82489720200A242A2 /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AE17F34A247B1FC2007F383E /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		AE60708F2482E63B000E8DE7 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		AE71ABC32479A35100C3CE9D /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
-		AE71ABC7247AF3A700C3CE9D /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
-		AE71ABC9247B076800C3CE9D /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		AE8941B92474021100F9814E /* ShiritoriWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShiritoriWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8941BC2474021100F9814E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE8941BE2474021100F9814E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +37,7 @@
 		AE8941CA2474021500F9814E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE8941D02474039F00F9814E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		AE8941D22474298900F9814E /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		AED3E1A82489720200A242A2 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +82,9 @@
 				AE71ABC32479A35100C3CE9D /* RankingViewController.swift */,
 				AE8941D02474039F00F9814E /* GameViewController.swift */,
 				AE8941D22474298900F9814E /* CameraViewController.swift */,
-				AE71ABC7247AF3A700C3CE9D /* ListTableViewController.swift */,
-				AE71ABC9247B076800C3CE9D /* ListTableViewCell.swift */,
 				AE17F34A247B1FC2007F383E /* ScoreViewController.swift */,
 				AE60708F2482E63B000E8DE7 /* File.swift */,
+				AED3E1A82489720200A242A2 /* CollectionViewController.swift */,
 			);
 			path = ShiritoriWalk;
 			sourceTree = "<group>";
@@ -171,15 +168,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE8941D12474039F00F9814E /* GameViewController.swift in Sources */,
-				AE71ABCA247B076800C3CE9D /* ListTableViewCell.swift in Sources */,
 				AE8941D32474298900F9814E /* CameraViewController.swift in Sources */,
-				AE71ABC8247AF3A700C3CE9D /* ListTableViewController.swift in Sources */,
 				AE8941C12474021100F9814E /* ViewController.swift in Sources */,
 				AE6070902482E63B000E8DE7 /* File.swift in Sources */,
 				AE8941BD2474021100F9814E /* AppDelegate.swift in Sources */,
 				AE8941BF2474021100F9814E /* SceneDelegate.swift in Sources */,
 				AE71ABC42479A35100C3CE9D /* RankingViewController.swift in Sources */,
 				AE17F34B247B1FC2007F383E /* ScoreViewController.swift in Sources */,
+				AED3E1A92489720200A242A2 /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,7 +319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEVELOPMENT_TEAM = 2K446D59RQ;
@@ -334,7 +330,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.lifeistech.ShiritoriWalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "L12YukiEsaki-Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "L12YukiEsaki-Development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -344,7 +340,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEVELOPMENT_TEAM = 2K446D59RQ;
@@ -355,7 +351,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.lifeistech.ShiritoriWalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "L12YukiEsaki-Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "L12YukiEsaki-Development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

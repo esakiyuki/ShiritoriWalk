@@ -28,6 +28,10 @@ class GameViewController: UIViewController {
         
     }
     
+    @IBAction func toTop() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
        let pedometer = CMPedometer()
            
