@@ -15,10 +15,9 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var tangoLabel: UILabel!
-    @IBOutlet var kazuLabel: UILabel!
     
-    let realm = try! Realm()
-    let addresses = try! Realm().objects(Address.self)
+//    let realm = try! Realm()
+//    let addresses = try! Realm().objects(Address.self)
     var notificationToken: NotificationToken?
     
     @IBAction func cancel() {
@@ -29,6 +28,10 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.datas = Address.allObjects()
+//        self.datas.addNotificationBlock({[weak self] (results, change, error) in
+//            self.collectionView.reloadData()
         
 //        tableView.delegate = self
 //        tableView.dataSource = self
@@ -48,6 +51,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 18 //表示するセルの数
+//        return self.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

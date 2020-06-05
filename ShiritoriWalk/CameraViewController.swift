@@ -15,7 +15,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBOutlet var tangoTextField: UITextField!
 //    @IBOutlet var kazuTextField: UITextField!
     
-    let realm = try! Realm()
+//    let realm = try! Realm()
     
 //    var mojiArray: [Dictionary<String, String>] = []
 //    let saveData = UserDefaults.standard
@@ -53,9 +53,9 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
 //                    title: "OK", style: .default, handler: nil
 //                ))
         
-        try! realm.write {
-            realm.add(newAddress)
-        }
+//        try! realm.write {
+//            realm.add(newAddress)
+//        }
         
         dismiss(animated: true, completion: nil)
         
