@@ -13,7 +13,7 @@ import RealmSwift
 class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
-//    @IBOutlet var photoImageView: UIImageView!
+    @IBOutlet var photoImageView: UIImageView!
 //    @IBOutlet var tangoLabel: UILabel!
     
     let realm = try! Realm()

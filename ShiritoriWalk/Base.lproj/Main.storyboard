@@ -197,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0C1-nz-jil" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1626" y="851"/>
+            <point key="canvasLocation" x="2358" y="851"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="dtA-iZ-coQ">
@@ -218,7 +218,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="xJf-GH-e3M">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="xJf-GH-e3M" customClass="CollectionViewCell" customModule="ShiritoriWalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3BC-cw-q6d">
@@ -238,6 +238,10 @@
                                                 </label>
                                             </subviews>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="mgj-gv-JAi" id="BEI-hR-PPj"/>
+                                            <outlet property="tangoLabel" destination="kfd-IW-ggJ" id="BiJ-EG-FhT"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -250,16 +254,8 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="fpC-sD-70a">
-                                        <barButtonItem key="leftBarButtonItem" title="もどる" id="y26-8B-DRy">
-                                            <connections>
-                                                <action selector="cancel" destination="NyB-Jx-fu0" id="UAo-Te-lk4"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yhR-sB-Mge">
-                                            <connections>
-                                                <segue destination="GP2-Mg-CQG" kind="presentation" modalPresentationStyle="fullScreen" id="muP-eT-BCE"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" title="もどる" id="y26-8B-DRy"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yhR-sB-Mge"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -275,13 +271,25 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="YU3-Ph-2lh"/>
                     </view>
+                    <navigationItem key="navigationItem" id="dsK-Wj-bp0">
+                        <barButtonItem key="leftBarButtonItem" title="もどる" id="0b4-fj-0T1">
+                            <connections>
+                                <action selector="cancel" destination="NyB-Jx-fu0" id="X61-DR-Enl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="siW-cL-Pvj">
+                            <connections>
+                                <segue destination="GP2-Mg-CQG" kind="show" id="QOz-4D-1SX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="PyX-bD-pUm" id="pqQ-HN-bx8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cdb-n6-fmJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1626" y="90"/>
+            <point key="canvasLocation" x="2358" y="90"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="MQf-e0-wha">
@@ -296,7 +304,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ゲームスタート"/>
                                 <connections>
-                                    <segue destination="NyB-Jx-fu0" kind="presentation" modalPresentationStyle="fullScreen" id="ufm-ec-ZoC"/>
+                                    <segue destination="SYr-8s-MMV" kind="presentation" modalPresentationStyle="fullScreen" id="ufm-ec-ZoC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4UT-U3-iK8">
@@ -400,12 +408,30 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cameraImageView" destination="1uS-fl-J0g" id="fiq-Q3-iFa"/>
-                        <outlet property="tangoTextField" destination="Cmr-oT-VL8" id="vkI-C2-YER"/>
+                        <outlet property="tangoTextField" destination="Cmr-oT-VL8" id="6uC-gO-Xfr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IR3-Xj-rBB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2386" y="93"/>
+            <point key="canvasLocation" x="3111" y="92"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SRT-Qg-VAJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SYr-8s-MMV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7HN-1U-huo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NyB-Jx-fu0" kind="relationship" relationship="rootViewController" id="zuo-hf-OCZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GTS-Jh-HLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1624.8" y="89.505247376311857"/>
         </scene>
     </scenes>
 </document>
