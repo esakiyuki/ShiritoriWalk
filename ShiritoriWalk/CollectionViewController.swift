@@ -33,8 +33,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
 //        self.datas.addNotificationBlock({[weak self] (results, change, error) in
 //            self.collectionView.reloadData()
         
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
             
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -60,10 +60,10 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
         cell.tangoLabel.text = addresses[indexPath.row].tango
-//        cell.kazuLabel.text = String(addresses[indexPath.row].kazu)
+        cell.kazuLabel.text = String(addresses[indexPath.row].kazu)
         
         return cell
 //        return addresses.count
