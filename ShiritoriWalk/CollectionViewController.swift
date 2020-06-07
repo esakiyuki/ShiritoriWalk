@@ -30,11 +30,29 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     var results = "n/a"
     
 //    let photos = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            self.collectionView.reloadData() // データの再読み込み
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.collectionView.reloadData()
+        
+        
+        
+        collectionView.dataSource = self
+
+        collectionView.backgroundColor = .lightGray
+
+        // レイアウト設定
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 100, height: 100)
+        collectionView.collectionViewLayout = layout
+        
+        
         
         // CMPedometerの確認
         if(CMPedometer.isStepCountingAvailable()){
@@ -69,7 +87,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
             self?.collectionView.reloadData()
         }
         
-        let layout = UICollectionViewFlowLayout()
+//        let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         collectionView.collectionViewLayout = layout
 
@@ -94,7 +112,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let horizontalSpace : CGFloat = 20
+        
+        let horizontalSpace : CGFloat = 30
         let cellSize : CGFloat = self.view.bounds.width / 3 - horizontalSpace
         return CGSize(width: cellSize, height: cellSize)
     }

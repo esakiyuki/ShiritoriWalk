@@ -51,7 +51,8 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
             realm.add(newAddress)
         }
         
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
         
 //        let alert = UIAlertController(
 //                    title: "入力完了", message: "文字の入力が完了しました", preferredStyle: .alert
