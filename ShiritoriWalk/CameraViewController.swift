@@ -47,6 +47,12 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
 //        newAddress.kazu = Int(kazuTextField.text!)!
 //        newAddress.picture = cameraImageView.image!
         
+        try! realm.write {
+            realm.add(newAddress)
+        }
+        
+        dismiss(animated: true, completion: nil)
+        
 //        let alert = UIAlertController(
 //                    title: "入力完了", message: "文字の入力が完了しました", preferredStyle: .alert
 //                )
@@ -54,11 +60,6 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
 //                    title: "OK", style: .default, handler: nil
 //                ))
         
-        try! realm.write {
-            realm.add(newAddress)
-        }
-        
-        dismiss(animated: true, completion: nil)
         
 //        let mojiWaking = ["moji": mojiTextField.text!]
 //        mojiArray.append(mojiWaking)

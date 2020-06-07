@@ -34,6 +34,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.collectionView.reloadData()
+        
         // CMPedometerの確認
         if(CMPedometer.isStepCountingAvailable()){
             self.pedometer.startUpdates(from: NSDate() as Date) {

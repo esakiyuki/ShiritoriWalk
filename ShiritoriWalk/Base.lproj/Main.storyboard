@@ -451,9 +451,6 @@
                                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Save"/>
-                                                <connections>
-                                                    <action selector="addAddress" destination="GP2-Mg-CQG" eventType="touchUpInside" id="f5E-Ai-Kln"/>
-                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -496,7 +493,11 @@
                         <viewLayoutGuide key="safeArea" id="SNv-wB-MQk"/>
                     </view>
                     <navigationItem key="navigationItem" id="kd0-fk-NLG">
-                        <barButtonItem key="rightBarButtonItem" title="save" id="bod-fr-AP2"/>
+                        <barButtonItem key="rightBarButtonItem" title="save" id="bod-fr-AP2">
+                            <connections>
+                                <action selector="addAddress" destination="GP2-Mg-CQG" id="Ajm-xA-uU6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cameraImageView" destination="1uS-fl-J0g" id="fiq-Q3-iFa"/>
