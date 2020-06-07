@@ -8,11 +8,13 @@
 
 import UIKit
 import RealmSwift
+import CoreMotion
 
 //class CollectionViewController: UIViewController {
 class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var stepslabel: UILabel!
 //    @IBOutlet var photoImageView: UIImageView!
 //    @IBOutlet var tangoLabel: UILabel!
     
@@ -24,18 +26,38 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
            dismiss(animated: true, completion: nil)
        }
     
+    let pedometer = CMPedometer()
+    var results = "n/a"
+    
 //    let photos = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // CMPedometerの確認
+        if(CMPedometer.isStepCountingAvailable()){
+            self.pedometer.startUpdates(from: NSDate() as Date) {
+                (data: CMPedometerData?, error) -> Void in
+                       
+                DispatchQueue.main.async(execute: { () -> Void in
+                    if(error == nil){
+                        // 歩数 NSNumber?
+                        let steps = data!.numberOfSteps
+                        let results:String = String(format:"steps: %d", steps.intValue)
+                               
+                        self.stepslabel.text = results
+                    }
+                })
+            }
+        }
+        
+        
+        
+        
 //        self.datas = Address.allObjects()
 //        self.datas.addNotificationBlock({[weak self] (results, change, error) in
 //            self.collectionView.reloadData()
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-            
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -63,7 +85,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
         cell.tangoLabel.text = addresses[indexPath.row].tango
-        cell.kazuLabel.text = String(addresses[indexPath.row].kazu)
+//        cell.kazuLabel.text = String(addresses[indexPath.row].kazu)
         
         return cell
 //        return addresses.count

@@ -12,6 +12,6 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var tangoLabel: UILabel!
     @IBOutlet var photoImageView: UIImageView!
-    @IBOutlet var kazuLabel: UILabel!
+//    @IBOutlet var kazuLabel: UILabel!
     
 }

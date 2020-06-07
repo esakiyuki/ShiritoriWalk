@@ -13,9 +13,10 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBOutlet var cameraImageView: UIImageView!
     @IBOutlet var tangoTextField: UITextField!
-    @IBOutlet var kazuTextField: UITextField!
+//    @IBOutlet var kazuTextField: UITextField!
     
     let realm = try! Realm()
+    
     
 //    var mojiArray: [Dictionary<String, String>] = []
 //    let saveData = UserDefaults.standard
@@ -43,7 +44,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBAction func addAddress() {
         let newAddress = Address()
         newAddress.tango = tangoTextField.text!
-        newAddress.kazu = Int(kazuTextField.text!)!
+//        newAddress.kazu = Int(kazuTextField.text!)!
 //        newAddress.picture = cameraImageView.image!
         
 //        let alert = UIAlertController(

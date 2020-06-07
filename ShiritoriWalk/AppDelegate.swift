@@ -7,15 +7,55 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+        
+//        var config = Realm.Configuration(
+//            schemaVersion: 4,
+//            migrationBlock: { migration, oldSchemaVersion in
+//                if (oldSchemaVersion &lt; 4) {}
+//        })
+//
+//        Realm.Configuration.defaultConfiguration = config
+//        config = Realm.Configuration()
+//        config.deleteRealmIfMigrationNeeded = true
+        
+        
+        
+//        let config = Realm.Configuration(
+//            schemaVersion: 1,
+//            migrationBlock: { migration, oldSchemaVersion in
+//                if (oldSchemaVersion &lt; 1) {}
+//        })
+//
+//        Realm.Configuration.defaultConfiguration = config
+//        let realm = try! Realm()
+        
+        
+        
+//        let config = Realm.Configuration(
+//
+//              schemaVersion: 0,
+//
+//                 migrationBlock: { migration, oldSchemaVersion in
+//
+//        if (oldSchemaVersion < 1) {
+//
+//        }})
+//
+//            Realm.Configuration.defaultConfiguration = config
+//
+//            let realm = try! Realm()
+//            print(realm, "Realm")
+//            print(config,"Realm Version")
+        
+        
+        
+            return true
     }
 
     // MARK: UISceneSession Lifecycle
