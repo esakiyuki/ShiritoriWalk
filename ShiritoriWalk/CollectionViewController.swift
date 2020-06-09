@@ -63,7 +63,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                     if(error == nil){
                         // 歩数 NSNumber?
                         let steps = data!.numberOfSteps
-                        let results:String = String(format:"steps: %d", steps.intValue)
+                        let results:String = String(format:"%d", steps.intValue)
                                
                         self.stepslabel.text = results
                     }
