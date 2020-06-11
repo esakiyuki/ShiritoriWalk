@@ -15,6 +15,14 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var stepslabel: UILabel!
+    
+//    var step = Int()
+    var stepString = String()
+//    var stepslabel = String()
+//    var stepslabel = Int()
+    
+    var photoImage: UIImage!
+    
 //    @IBOutlet var photoImageView: UIImageView!
 //    @IBOutlet var tangoLabel: UILabel!
     
@@ -22,9 +30,20 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let addresses = try! Realm().objects(Address.self)
     var notificationToken: NotificationToken?
     
+//    let photoImageView = UIImage(data: imageData)
+    
+//    let image = UIImage()
+//    let pngData = photoImageView.toPNGData()
+//    let pngImage = pngData.toImage()
+    
+    
     @IBAction func cancel() {
            dismiss(animated: true, completion: nil)
        }
+    
+    @IBAction func next(_ sender: Any) {
+        performSegue(withIdentifier: "Next", sender: nil)
+    }
     
     let pedometer = CMPedometer()
     var results = "n/a"
@@ -41,11 +60,9 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         
         self.collectionView.reloadData()
         
-        
-        
+        collectionView.delegate = self
         collectionView.dataSource = self
-
-        collectionView.backgroundColor = .lightGray
+//        collectionView.backgroundColor = .lightGray
 
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
@@ -71,8 +88,17 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
             }
         }
         
-        
-        
+//        public extension Data {
+//
+////            func tophotoImageView() -> UIImage {
+//            public func toImage() -> UIImage {
+//                guard let photoImageView = UIImage(data: self) else {
+//                    return UIImage()
+//                }
+//                return photoImageView
+//            }
+//
+//        }
         
 //        self.datas = Address.allObjects()
 //        self.datas.addNotificationBlock({[weak self] (results, change, error) in
@@ -94,6 +120,12 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as? CollectionViewController
+        NextVC?.String = stepslabel.text
+//        NextVC?.Int = stepslabel.text
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return 18 //表示するセルの数
 //        return self.count
@@ -105,9 +137,15 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
         cell.tangoLabel.text = addresses[indexPath.row].tango
+//        cell.photoImageView.image = UIImage(addresses[indexPath.row].photo)
+        
+        cell.photoImageView.image = photoImage
+        
+//        cell.photoImageView.image = addresses[indexPath.row].photo
 //        cell.kazuLabel.text = String(addresses[indexPath.row].kazu)
         
         return cell
+//        return image
 //        return addresses.count
     }
     

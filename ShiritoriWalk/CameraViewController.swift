@@ -11,12 +11,25 @@ import RealmSwift
 
 class CameraViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    @IBOutlet var cameraImageView: UIImageView!
+    @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var tangoTextField: UITextField!
 //    @IBOutlet var kazuTextField: UITextField!
     
     let realm = try! Realm()
     
+//    let imageData: NSData = UIImagePNGRepresentation(photoImageView) as! NSData
+    
+//    let imageData = UIImagePNGRepresentation(photoImageView)
+    
+//    let imageData = UIImage(named:"photoImageView")!
+//    let photoImageView = UIImagePNGRepresentation(imageView.image!) as NSData?
+    
+    var photoImage : UIImage!
+    let images = UIImage(named: "photoImage")
+    
+//    let image = UIImage(named: "photoImageView")
+//    let UIImageView = UIImage()
+//    let pngData = image.toPNGData()
     
 //    var mojiArray: [Dictionary<String, String>] = []
 //    let saveData = UserDefaults.standard
@@ -45,7 +58,9 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         let newAddress = Address()
         newAddress.tango = tangoTextField.text!
 //        newAddress.kazu = Int(kazuTextField.text!)!
-//        newAddress.picture = cameraImageView.image!
+        
+        
+//        newAddress.photo = UIImage(photoImageView.image!)!
         
         try! realm.write {
             realm.add(newAddress)
@@ -88,6 +103,8 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        photoImageView.image = photoImage
+        
 //        var mojiArray: [Dictionary<String, String>] = []
 //        if saveData.array(forKey: "SHIRITORI") != nil {
 //            mojiArray = saveData.array(forKey: "SHIRITORI") as! [Dictionary<String, String>]
@@ -96,6 +113,27 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         // Do any additional setup after loading the view.
     }
     
+    
+//    public extension UIImage {
+//
+//        public func toPNGData() -> Data {
+//            guard let photoImageView = self.pngData() else {
+//                return Data()
+//            }
+////            return data
+//            return photoImageView
+////            return image
+//        }
+        
+//        public func toJPEGData() -> Data {
+//            guard let data = self.jpegData(compressionQuality: 1.0) else {
+//                return Data()
+//            }
+//        }
+        
+//    }
+    
+    
     func presentPickerController(_ picker: UIImagePickerController, didFinishPikingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 //        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
 //            let picker = UIImagePickerController()
@@ -103,8 +141,11 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
 //            picker.delegate = self
 //            self.present(picker, animated: true, completion: nil)
 //        }
-        cameraImageView.image = info[.editedImage] as? UIImage
-        dismiss(animated: true, completion: nil)
+        
+        
+        
+//        photoImageView.image = info[.editedImage] as? UIImage
+//        dismiss(animated: true, completion: nil)
     }
     
 

@@ -21,6 +21,8 @@ class ScoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        stepslabel.text = stepString
+        
         // CMPedometerの確認
         if(CMPedometer.isStepCountingAvailable()){
             self.pedometer.startUpdates(from: NSDate() as Date) {

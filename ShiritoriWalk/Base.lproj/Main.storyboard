@@ -323,7 +323,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xXI-I2-lJO" kind="presentation" modalPresentationStyle="fullScreen" id="wL6-o6-Qa1"/>
+                                    <action selector="next:" destination="NyB-Jx-fu0" eventType="touchUpInside" id="YlZ-Zg-SsG"/>
+                                    <segue destination="xXI-I2-lJO" kind="presentation" identifier="Next" modalPresentationStyle="fullScreen" id="wL6-o6-Qa1"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-aw-a7U">
@@ -501,7 +502,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cameraImageView" destination="1uS-fl-J0g" id="fiq-Q3-iFa"/>
+                        <outlet property="photoImageView" destination="1uS-fl-J0g" id="87z-UC-C9O"/>
                         <outlet property="tangoTextField" destination="Cmr-oT-VL8" id="6uC-gO-Xfr"/>
                     </connections>
                 </viewController>
