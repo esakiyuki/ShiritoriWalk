@@ -10,31 +10,35 @@ import UIKit
 import RealmSwift
 //import CoreMotion
 
+//class photoImage: ScoreViewController
+
 class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return addresses.count
-    }
+func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return addresses.count
+}
+
+func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        
-        cell.tangoLabel.text = addresses[indexPath.row].tango
-        cell.photoImageView.image = photoImage
-        
-        return cell
-    }
+    cell.tangoLabel.text = addresses[indexPath.row].tango
+//    cell.photoImageView.image = photoImage
     
-    var photoImage: UIImage!
+    return cell
+}
+    
+//    var photoImage: UIImage!
     
     @IBOutlet var stepslabel: UILabel!
     @IBOutlet var numberlabel: UILabel!
     @IBOutlet var scorelabel: UILabel!
     
-    var collectionView: UICollectionView!
+//    var collectionView: UICollectionView!collectionView
     
     let realm = try! Realm()
-    let addresses = try! Realm().objects(Address.self)
+    var addresses = try! Realm().objects(Address.self)
     var notificationToken: NotificationToken?
+    
+//    var addresses: Results<CollectionViewCell>!
     
     
 //    let pedometer = CMPedometer()
@@ -44,7 +48,7 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
-            self.collectionView.reloadData() // データの再読み込み
+//            self.collectionView.reloadData() // データの再読み込み
     }
 
     override func viewDidLoad() {
@@ -52,16 +56,20 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         stepslabel.text = stepString
         
-        self.collectionView.reloadData()
+//        self.collectionView.reloadData()
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
+        
+        let realm = try! Realm()
+//        self.addresses = realm.objects(CollectionViewCell.self)
+//        self.collectionView.reloadData()
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
-        notificationToken = addresses.observe { [weak self] _ in
-            self?.collectionView.reloadData()
-        }
+//        notificationToken = addresses.observe { [weak self] _ in
+//            self?.collectionView.reloadData()
+//        }
         
         // CMPedometerの確認
 //        if(CMPedometer.isStepCountingAvailable()){
@@ -90,7 +98,7 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
         try! realm.write{
             realm.deleteAll()
         }
-        self.collectionView.reloadData()
+//        self.collectionView.reloadData()
         
         
         self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
