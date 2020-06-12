@@ -145,8 +145,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
-        cell.tangoLabel.text = addresses[indexPath.row].tango
-        cell.photoImageView.image = photoImage
+//        cell.tangoLabel.text = addresses[indexPath.row].tango
+//        cell.photoImageView.image = photoImage
         
         
 //        cell.photoImageView.image = UIImage(addresses[indexPath.row].photo)
@@ -154,14 +154,22 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
 //        var photoImage = [UIImage]()
 //        photoImage.append(UIImage(data: Data(base64Encoded: addressesValue.imageString, options: .ignoreUnknownCharacters)!)!)
         
+//        for addressesValue in addresses {
+//            var image = [UIImage]()
+//            image.append(UIImage(data: Data(base64Encoded: addressesValue.imageString, options: .ignoreUnknownCharacters)!)!)
+//
+//            cell.photoImageView.image = photoImage[indexPath.row]
+//        }
         
-//        let photoImageView = cell.contentView.viewWithTag(1)  as! UIImageView
+        photoImage = UIImage(data: Data(base64Encoded: addressesValue.imageString, options: .ignoreUnknownCharacters)!)!
+        
+        let photoImageView = cell.contentView.viewWithTag(1)  as! UIImageView
 //        cell.photoImage = UIImage(named: addresses[indexPath.row])
-//        let photoImage = UIImage(named: addresses[indexPath.row])
-//        photoImageView.image = photoImage
+        let photoImage = UIImage(named: addresses[indexPath.row])
+        photoImageView.image = photoImage
 
-//        let tangoLabel = cell.contentView.viewWithTag(2) as! UILabel
-//        cell.tangoLabel.text = addresses[indexPath.row].tango
+        let tangoLabel = cell.contentView.viewWithTag(2) as! UILabel
+        cell.tangoLabel.text = addresses[indexPath.row].tango
         
         
 //        cell.photoImageView.image = addresses[indexPath.row].photo
