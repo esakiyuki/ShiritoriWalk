@@ -134,18 +134,17 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
 //    }
     
     
-    func presentPickerController(_ picker: UIImagePickerController, didFinishPikingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 //        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
 //            let picker = UIImagePickerController()
 //            picker.sourceType = sourceType
 //            picker.delegate = self
 //            self.present(picker, animated: true, completion: nil)
 //        }
-        
-        
-        
-//        photoImageView.image = info[.editedImage] as? UIImage
-//        dismiss(animated: true, completion: nil)
+
+        photoImageView.image = info[.editedImage] as? UIImage
+        dismiss(animated: true, completion: nil)
     }
     
 

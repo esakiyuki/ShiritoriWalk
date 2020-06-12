@@ -21,7 +21,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
 //    var stepslabel = String()
 //    var stepslabel = Int()
     
-    var photoImage: UIImage!
+//    var photoImage: UIImage!
     
 //    @IBOutlet var photoImageView: UIImageView!
 //    @IBOutlet var tangoLabel: UILabel!
@@ -139,14 +139,30 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         return addresses.count
     }
     
+    var photoImage: UIImage!
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
         cell.tangoLabel.text = addresses[indexPath.row].tango
+        cell.photoImageView.image = photoImage
+        
+        
 //        cell.photoImageView.image = UIImage(addresses[indexPath.row].photo)
         
-        cell.photoImageView.image = photoImage
+//        var photoImage = [UIImage]()
+//        photoImage.append(UIImage(data: Data(base64Encoded: addressesValue.imageString, options: .ignoreUnknownCharacters)!)!)
+        
+        
+//        let photoImageView = cell.contentView.viewWithTag(1)  as! UIImageView
+//        cell.photoImage = UIImage(named: addresses[indexPath.row])
+//        let photoImage = UIImage(named: addresses[indexPath.row])
+//        photoImageView.image = photoImage
+
+//        let tangoLabel = cell.contentView.viewWithTag(2) as! UILabel
+//        cell.tangoLabel.text = addresses[indexPath.row].tango
+        
         
 //        cell.photoImageView.image = addresses[indexPath.row].photo
 //        cell.kazuLabel.text = String(addresses[indexPath.row].kazu)
