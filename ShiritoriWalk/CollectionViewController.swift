@@ -64,8 +64,12 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
 //    let photos = []
     
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            self.collectionView.reloadData() // データの再読み込み
+        super.viewWillAppear(animated)
+        self.collectionView.reloadData() // データの再読み込み
+        
+//        self.navigationItem.title = "title font test"
+//        self.navigationController?.navigationBar.titleTextAttributes
+//            = [NSFontAttributeName: UIFont(name: "Times New Roman", size: 15)!]
     }
 
     override func viewDidLoad() {
