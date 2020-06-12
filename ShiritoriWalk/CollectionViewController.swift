@@ -82,8 +82,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         layout.itemSize = CGSize(width: 100, height: 100)
         collectionView.collectionViewLayout = layout
         
-        
-        
         // CMPedometerの確認
         if(CMPedometer.isStepCountingAvailable()){
             self.pedometer.startUpdates(from: NSDate() as Date) {
@@ -117,9 +115,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
 //        self.datas.addNotificationBlock({[weak self] (results, change, error) in
 //            self.collectionView.reloadData()
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         notificationToken = addresses.observe { [weak self] _ in
@@ -145,9 +140,10 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
-//        cell.tangoLabel.text = addresses[indexPath.row].tango
-//        cell.photoImageView.image = photoImage
+        cell.tangoLabel.text = addresses[indexPath.row].tango
+        cell.photoImageView.image = photoImage
         
+        return cell
         
 //        cell.photoImageView.image = UIImage(addresses[indexPath.row].photo)
         
@@ -161,21 +157,20 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
 //            cell.photoImageView.image = photoImage[indexPath.row]
 //        }
         
-        photoImage = UIImage(data: Data(base64Encoded: addressesValue.imageString, options: .ignoreUnknownCharacters)!)!
-        
-        let photoImageView = cell.contentView.viewWithTag(1)  as! UIImageView
-//        cell.photoImage = UIImage(named: addresses[indexPath.row])
-        let photoImage = UIImage(named: addresses[indexPath.row])
-        photoImageView.image = photoImage
-
-        let tangoLabel = cell.contentView.viewWithTag(2) as! UILabel
-        cell.tangoLabel.text = addresses[indexPath.row].tango
+//        photoImage = UIImage(data: Data(base64Encoded: addressesValue.imageString, options: .ignoreUnknownCharacters)!)!
+//
+//        let photoImageView = cell.contentView.viewWithTag(1)  as! UIImageView
+////        cell.photoImage = UIImage(named: addresses[indexPath.row])
+//        let photoImage = UIImage(named: addresses[indexPath.row])
+//        photoImageView.image = photoImage
+//
+//        let tangoLabel = cell.contentView.viewWithTag(2) as! UILabel
+//        cell.tangoLabel.text = addresses[indexPath.row].tango
         
         
 //        cell.photoImageView.image = addresses[indexPath.row].photo
 //        cell.kazuLabel.text = String(addresses[indexPath.row].kazu)
         
-        return cell
 //        return image
 //        return addresses.count
     }
