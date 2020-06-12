@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreMotion
+//import CoreMotion
 
 class ScoreViewController: UIViewController {
     
@@ -15,8 +15,10 @@ class ScoreViewController: UIViewController {
     @IBOutlet var numberlabel: UILabel!
     @IBOutlet var scorelabel: UILabel!
     
-    let pedometer = CMPedometer()
-    var results = "n/a"
+//    let pedometer = CMPedometer()
+//    var results = "n/a"
+    
+    var stepString = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,21 +26,21 @@ class ScoreViewController: UIViewController {
         stepslabel.text = stepString
         
         // CMPedometerの確認
-        if(CMPedometer.isStepCountingAvailable()){
-            self.pedometer.startUpdates(from: NSDate() as Date) {
-                (data: CMPedometerData?, error) -> Void in
-                       
-                DispatchQueue.main.async(execute: { () -> Void in
-                    if(error == nil){
-                        // 歩数 NSNumber?
-                        let steps = data!.numberOfSteps
-                        let results:String = String(format:"%d", steps.intValue)
-                               
-                        self.stepslabel.text = results
-                    }
-                })
-            }
-        }
+//        if(CMPedometer.isStepCountingAvailable()){
+//            self.pedometer.startUpdates(from: NSDate() as Date) {
+//                (data: CMPedometerData?, error) -> Void in
+//
+//                DispatchQueue.main.async(execute: { () -> Void in
+//                    if(error == nil){
+//                        // 歩数 NSNumber?
+//                        let steps = data!.numberOfSteps
+//                        let results:String = String(format:"%d", steps.intValue)
+//
+//                        self.stepslabel.text = results
+//                    }
+//                })
+//            }
+//        }
 
         // Do any additional setup after loading the view.
     }

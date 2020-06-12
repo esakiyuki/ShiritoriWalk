@@ -41,7 +41,20 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
            dismiss(animated: true, completion: nil)
        }
     
-    @IBAction func next(_ sender: Any) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        let nextVC = segue.destination as? CollectionViewController
+    //        NextVC?.String = stepslabel.text
+    ////        NextVC?.Int = stepslabel.text
+            
+            if segue.identifier == "Next" {
+                // 2. 遷移先のViewControllerを取得
+                let next = segue.destination as? ScoreViewController
+                // 3. １で用意した遷移先の変数に値を渡す
+                next?.stepString = self.stepslabel.text!
+            }
+        }
+    
+    @IBAction func toNext(_ sender: Any) {
         performSegue(withIdentifier: "Next", sender: nil)
     }
     
@@ -118,12 +131,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         collectionView.collectionViewLayout = layout
 
         // Do any additional setup after loading the view.
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextVC = segue.destination as? CollectionViewController
-        NextVC?.String = stepslabel.text
-//        NextVC?.Int = stepslabel.text
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

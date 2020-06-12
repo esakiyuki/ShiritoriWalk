@@ -323,7 +323,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="next:" destination="NyB-Jx-fu0" eventType="touchUpInside" id="YlZ-Zg-SsG"/>
+                                    <action selector="toNext:" destination="NyB-Jx-fu0" eventType="touchUpInside" id="eij-yl-orp"/>
                                     <segue destination="xXI-I2-lJO" kind="presentation" identifier="Next" modalPresentationStyle="fullScreen" id="wL6-o6-Qa1"/>
                                 </connections>
                             </button>
