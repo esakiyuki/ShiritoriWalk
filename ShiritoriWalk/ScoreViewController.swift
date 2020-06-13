@@ -13,20 +13,21 @@ import RealmSwift
 //class photoImage: ScoreViewController
 
 class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return addresses.count
-}
-
-func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
     
-    cell.tangoLabel.text = addresses[indexPath.row].tango
-//    cell.photoImageView.image = photoImage
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return addresses.count
+    }
     
-    return cell
-}
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
+        
+        cell.tangoLabel.text = addresses[indexPath.row].tango
+        //    cell.photoImageView.image = photoImage
+        
+        return cell
+    }
     
-//    var photoImage: UIImage!
+    //    var photoImage: UIImage!
     
     @IBOutlet var stepslabel: UILabel!
     @IBOutlet var numberlabel: UILabel!
@@ -35,8 +36,15 @@ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:
 //    var collectionView: UICollectionView!collectionView
     
     let realm = try! Realm()
+    
     var addresses = try! Realm().objects(Address.self)
     var notificationToken: NotificationToken?
+//    let results = realm.objects(Address.self)
+//    let count = results.count
+    
+    
+//    print(results.count)
+//    results.count
     
 //    var addresses: Results<CollectionViewCell>!
     
@@ -45,6 +53,8 @@ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:
 //    var results = "n/a"
     
     var stepString = String()
+    
+    var kosuuString = String()
     
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
@@ -56,12 +66,16 @@ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:
         
         stepslabel.text = stepString
         
+        numberlabel.text = kosuuString
+        
+//        numberlabel.text = String(number)
+        
 //        self.collectionView.reloadData()
         
 //        collectionView.delegate = self
 //        collectionView.dataSource = self
         
-        let realm = try! Realm()
+//        let realm = try! Realm()
 //        self.addresses = realm.objects(CollectionViewCell.self)
 //        self.collectionView.reloadData()
         

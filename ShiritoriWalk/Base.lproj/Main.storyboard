@@ -380,7 +380,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfd-IW-ggJ">
-                                                    <rect key="frame" x="8" y="67" width="84" height="45"/>
+                                                    <rect key="frame" x="0.0" y="70" width="112" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Nikkyou-Sans" family="Nikkyou Sans" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -448,14 +448,21 @@
                                     <segue destination="xXI-I2-lJO" kind="presentation" identifier="Next" modalPresentationStyle="fullScreen" id="wL6-o6-Qa1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ほ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFG-ai-YDh">
-                                <rect key="frame" x="301" y="83" width="34" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ほ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFG-ai-YDh">
+                                <rect key="frame" x="312" y="73" width="23" height="38"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="34" id="Mr0-uD-x3e"/>
-                                    <constraint firstAttribute="height" constant="28" id="Zy5-fX-vfS"/>
+                                    <constraint firstAttribute="width" constant="23" id="Kb0-tN-5qB"/>
+                                    <constraint firstAttribute="height" constant="38" id="lF6-Pp-7yk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Nikkyou-Sans" family="Nikkyou Sans" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="kosuu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQX-y3-2vy">
+                                <rect key="frame" x="302" y="626" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -464,6 +471,7 @@
                             <constraint firstItem="XF0-Ph-dDY" firstAttribute="top" secondItem="Rog-dO-3wh" secondAttribute="top" id="0Fp-ks-CI1"/>
                             <constraint firstItem="PyX-bD-pUm" firstAttribute="trailing" secondItem="YU3-Ph-2lh" secondAttribute="trailing" id="5A5-dk-au6"/>
                             <constraint firstItem="1ka-aw-a7U" firstAttribute="top" secondItem="W8X-O2-po8" secondAttribute="bottom" constant="40" id="5Hy-qH-S75"/>
+                            <constraint firstItem="YU3-Ph-2lh" firstAttribute="trailing" secondItem="jFG-ai-YDh" secondAttribute="trailing" constant="40" id="7Hp-m1-Rqv"/>
                             <constraint firstItem="OQw-21-PW1" firstAttribute="trailing" secondItem="YU3-Ph-2lh" secondAttribute="trailing" id="HyY-wa-UAM"/>
                             <constraint firstItem="YU3-Ph-2lh" firstAttribute="trailing" secondItem="puy-W6-JLm" secondAttribute="trailing" constant="103" id="J9X-q6-WdH"/>
                             <constraint firstItem="YU3-Ph-2lh" firstAttribute="trailing" secondItem="1ka-aw-a7U" secondAttribute="trailing" constant="16" id="Pnf-qF-lIQ"/>
@@ -475,8 +483,7 @@
                             <constraint firstItem="YU3-Ph-2lh" firstAttribute="bottom" secondItem="puy-W6-JLm" secondAttribute="bottom" constant="8" id="ePI-Uu-Zjf"/>
                             <constraint firstItem="PyX-bD-pUm" firstAttribute="leading" secondItem="YU3-Ph-2lh" secondAttribute="leading" id="eXd-iH-G9V"/>
                             <constraint firstItem="OQw-21-PW1" firstAttribute="bottom" secondItem="YU3-Ph-2lh" secondAttribute="bottom" id="fjk-NS-TfD"/>
-                            <constraint firstItem="YU3-Ph-2lh" firstAttribute="trailing" secondItem="jFG-ai-YDh" secondAttribute="trailing" constant="40" id="gTE-rz-F5L"/>
-                            <constraint firstItem="PyX-bD-pUm" firstAttribute="top" secondItem="jFG-ai-YDh" secondAttribute="bottom" id="gTa-Yc-VLX"/>
+                            <constraint firstItem="jFG-ai-YDh" firstAttribute="top" secondItem="W8X-O2-po8" secondAttribute="bottom" constant="50" id="lV7-VF-JAf"/>
                             <constraint firstItem="XF0-Ph-dDY" firstAttribute="leading" secondItem="YU3-Ph-2lh" secondAttribute="leading" id="oxU-fN-YFy"/>
                             <constraint firstItem="puy-W6-JLm" firstAttribute="top" secondItem="PyX-bD-pUm" secondAttribute="bottom" id="vFA-L7-txC"/>
                         </constraints>
@@ -496,6 +503,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="PyX-bD-pUm" id="pqQ-HN-bx8"/>
+                        <outlet property="numberlabel" destination="hQX-y3-2vy" id="zJc-aw-9is"/>
                         <outlet property="stepslabel" destination="1ka-aw-a7U" id="GLY-Iy-lxt"/>
                     </connections>
                 </viewController>
@@ -520,7 +528,7 @@
                                     <constraint firstAttribute="width" constant="344" id="AgC-TJ-YsW"/>
                                     <constraint firstAttribute="height" constant="320" id="Szq-L8-YEA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Nikkyou-Sans" family="Nikkyou Sans" pointSize="220"/>
+                                <fontDescription key="fontDescription" name="Nikkyou-Sans" family="Nikkyou Sans" pointSize="230"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>

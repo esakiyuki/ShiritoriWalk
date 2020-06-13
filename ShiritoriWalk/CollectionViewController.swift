@@ -20,6 +20,9 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var stepslabel: UILabel!
     
+    @IBOutlet var numberlabel: UILabel!
+    var number: Int = 0
+    
 //    var step = Int()
     var stepString = String()
 //    var stepslabel = String()
@@ -46,21 +49,45 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
        }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        let nextVC = segue.destination as? CollectionViewController
-    //        NextVC?.String = stepslabel.text
-    ////        NextVC?.Int = stepslabel.text
-            
-            if segue.identifier == "Next" {
-                // 2. 遷移先のViewControllerを取得
-                let next = segue.destination as? ScoreViewController
-                // 3. １で用意した遷移先の変数に値を渡す
-                next?.stepString = self.stepslabel.text!
-            }
+        //        let nextVC = segue.destination as? CollectionViewController
+        //        NextVC?.String = stepslabel.text
+        ////        NextVC?.Int = stepslabel.text
+        
+        if segue.identifier == "Next" {
+            //遷移先のViewControllerを取得
+            let next = segue.destination as? ScoreViewController
+            //用意した遷移先の変数に値を渡す
+            next?.stepString = self.stepslabel.text!
+            next?.kosuuString = self.numberlabel.text!
         }
+        
+        
+//        if segue.identifier == "Next" {
+//            // 2. 遷移先のViewControllerを取得
+//            _ = segue.destination as? ScoreViewController
+//            // 3. １で用意した遷移先の変数に値を渡す
+//            let results = realm.objects(Address.self)
+//            let count = results.count
+//            number = count
+////            numberlabel.text = String(number)
+//        }
+    }
+    
+//    @IBAction func kosuu() {
+//        let results = realm.objects(Address.self)
+//        let count = results.count
+//        number = count
+//        numberlabel.text = String(number)
+//    }
+    
     
     @IBAction func toNext(_ sender: Any) {
         performSegue(withIdentifier: "Next", sender: nil)
         
+        let results = realm.objects(Address.self)
+        let count = results.count
+        number = count
+        numberlabel.text = String(number)
         
 //        score = 1000
         let score: Int = 1000
@@ -88,7 +115,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
 //    let photos = []
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(true)
         self.collectionView.reloadData() // データの再読み込み
         
 //        self.navigationItem.title = "title font test"
@@ -145,9 +172,9 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
-        notificationToken = addresses.observe { [weak self] _ in
-            self?.collectionView.reloadData()
-        }
+//        notificationToken = addresses.observe { [weak self] _ in
+//            self?.collectionView.reloadData()
+//        }
         
 //        let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
