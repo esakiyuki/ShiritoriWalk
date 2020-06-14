@@ -27,7 +27,8 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
         return cell
     }
     
-    //    var photoImage: UIImage!
+    var score: Int = 1000
+    let defaults: UserDefaults = UserDefaults.standard
     
     @IBOutlet var stepslabel: UILabel!
     @IBOutlet var numberlabel: UILabel!
@@ -36,7 +37,6 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
 //    var collectionView: UICollectionView!collectionView
     
     let realm = try! Realm()
-    
     var addresses = try! Realm().objects(Address.self)
     var notificationToken: NotificationToken?
 //    let results = realm.objects(Address.self)
@@ -67,50 +67,37 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
         stepslabel.text = stepString
         
         numberlabel.text = kosuuString
-        
-//        numberlabel.text = String(number)
-        
-//        self.collectionView.reloadData()
-        
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
-        
-//        let realm = try! Realm()
-//        self.addresses = realm.objects(CollectionViewCell.self)
-//        self.collectionView.reloadData()
-        
+
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        
-//        notificationToken = addresses.observe { [weak self] _ in
-//            self?.collectionView.reloadData()
-//        }
-        
-        // CMPedometerの確認
-//        if(CMPedometer.isStepCountingAvailable()){
-//            self.pedometer.startUpdates(from: NSDate() as Date) {
-//                (data: CMPedometerData?, error) -> Void in
-//
-//                DispatchQueue.main.async(execute: { () -> Void in
-//                    if(error == nil){
-//                        // 歩数 NSNumber?
-//                        let steps = data!.numberOfSteps
-//                        let results:String = String(format:"%d", steps.intValue)
-//
-//                        self.stepslabel.text = results
-//                    }
-//                })
-//            }
-//        }
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func toTop() {
-//        self.dismiss(animated: true, completion: nil)
+        //        self.dismiss(animated: true, completion: nil)
         
         let realm = try! Realm()
         try! realm.write{
             realm.deleteAll()
+            
+            
+            let score: Int = 1000
+            
+            let highScore1: Int = defaults.integer(forKey: "score1")
+            let highScore2: Int = defaults.integer(forKey: "score2")
+            let highScore3: Int = defaults.integer(forKey: "score3")
+            
+            if score > highScore1 {
+                defaults.set(score, forKey: "score1")
+                defaults.set(highScore1, forKey: "score2")
+                defaults.set(highScore2, forKey: "score3")
+            } else if score > highScore2 {
+                defaults.set(score, forKey: "score2")
+                defaults.set(highScore2, forKey: "score3")
+            } else if score > highScore3 {
+                defaults.set(score, forKey: "score3")
+            }
+            defaults.synchronize()
         }
 //        self.collectionView.reloadData()
         

@@ -13,46 +13,39 @@ import CoreMotion
 //class CollectionViewController: UIViewController {
 class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var score: Int = 1000
-    let defaults: UserDefaults = UserDefaults.standard
-    
-    
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var stepslabel: UILabel!
-    
+    @IBOutlet var scorelabel: UILabel!
     @IBOutlet var numberlabel: UILabel!
     var number: Int = 0
+    var number1: Int = 0
+    var number2: Int = 0
+    var number3: Int = 0
     
-//    var step = Int()
+//    var number2 = stepslabel.text!
+//    var number3 = numberlabel.text!
+//    var number2 = String(stepslabel.text!)
+//    var number3 = String(numberlabel.text!)
+    
+    @IBAction func select() {
+//        String(number2) = stepslabel.text
+//        String(number3) = numberlabel.text
+//        number1 = number2 * number3
+        number1 = Int(number2) * Int(number3)
+        scorelabel.text = String(number1)
+    }
+    
     var stepString = String()
-//    var stepslabel = String()
-//    var stepslabel = Int()
-    
-//    var photoImage: UIImage!
-    
-//    @IBOutlet var photoImageView: UIImageView!
-//    @IBOutlet var tangoLabel: UILabel!
     
     let realm = try! Realm()
     let addresses = try! Realm().objects(Address.self)
     var notificationToken: NotificationToken?
-    
-//    let photoImageView = UIImage(data: imageData)
-    
-//    let image = UIImage()
-//    let pngData = photoImageView.toPNGData()
-//    let pngImage = pngData.toImage()
-    
     
     @IBAction func cancel() {
            dismiss(animated: true, completion: nil)
        }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //        let nextVC = segue.destination as? CollectionViewController
-        //        NextVC?.String = stepslabel.text
-        ////        NextVC?.Int = stepslabel.text
-        
         if segue.identifier == "Next" {
             //遷移先のViewControllerを取得
             let next = segue.destination as? ScoreViewController
@@ -61,52 +54,10 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
             next?.kosuuString = self.numberlabel.text!
         }
         
-        
-//        if segue.identifier == "Next" {
-//            // 2. 遷移先のViewControllerを取得
-//            _ = segue.destination as? ScoreViewController
-//            // 3. １で用意した遷移先の変数に値を渡す
-//            let results = realm.objects(Address.self)
-//            let count = results.count
-//            number = count
-////            numberlabel.text = String(number)
-//        }
     }
-    
-//    @IBAction func kosuu() {
-//        let results = realm.objects(Address.self)
-//        let count = results.count
-//        number = count
-//        numberlabel.text = String(number)
-//    }
-    
     
     @IBAction func toNext(_ sender: Any) {
         performSegue(withIdentifier: "Next", sender: nil)
-        
-        let results = realm.objects(Address.self)
-        let count = results.count
-        number = count
-        numberlabel.text = String(number)
-        
-//        score = 1000
-        let score: Int = 1000
-        
-        let highScore1: Int = defaults.integer(forKey: "score1")
-        let highScore2: Int = defaults.integer(forKey: "score2")
-        let highScore3: Int = defaults.integer(forKey: "score3")
-        
-        if score > highScore1 {
-            defaults.set(score, forKey: "score1")
-            defaults.set(highScore1, forKey: "score2")
-            defaults.set(highScore2, forKey: "score3")
-        } else if score > highScore2 {
-            defaults.set(score, forKey: "score2")
-            defaults.set(highScore2, forKey: "score3")
-        } else if score > highScore3 {
-            defaults.set(score, forKey: "score3")
-        }
-        defaults.synchronize()
     }
     
     let pedometer = CMPedometer()
@@ -117,6 +68,13 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.collectionView.reloadData() // データの再読み込み
+        
+        //realmに保存してあるデータ数をlabelに表示
+        let results = realm.objects(Address.self)
+        let count = results.count
+        number = count
+        numberlabel.text = String(number)
+        numberlabel.isHidden = true
         
 //        self.navigationItem.title = "title font test"
 //        self.navigationController?.navigationBar.titleTextAttributes
