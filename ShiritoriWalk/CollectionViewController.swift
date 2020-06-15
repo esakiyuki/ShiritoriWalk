@@ -44,17 +44,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.collectionView.reloadData() // データの再読み込み
-        
-//        //realmに保存してあるデータ数をlabelに表示
-//        let results = realm.objects(Address.self)
-//        let count = results.count
-//        number = count
-//        numberlabel.text = String(number)
-//        numberlabel.isHidden = true
-        
-//        self.navigationItem.title = "title font test"
-//        self.navigationController?.navigationBar.titleTextAttributes
-//            = [NSFontAttributeName: UIFont(name: "Times New Roman", size: 15)!]
     }
 
     override func viewDidLoad() {
@@ -87,29 +76,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
             }
         }
         
-//        public extension Data {
-//
-////            func tophotoImageView() -> UIImage {
-//            public func toImage() -> UIImage {
-//                guard let photoImageView = UIImage(data: self) else {
-//                    return UIImage()
-//                }
-//                return photoImageView
-//            }
-//
-//        }
-        
-//        self.datas = Address.allObjects()
-//        self.datas.addNotificationBlock({[weak self] (results, change, error) in
-//            self.collectionView.reloadData()
-        
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
-//        notificationToken = addresses.observe { [weak self] _ in
-//            self?.collectionView.reloadData()
-//        }
-        
-//        let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         collectionView.collectionViewLayout = layout
 
@@ -126,40 +94,17 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
+//        cell.tangoLabel.text = addresses[indexPath.row].tango
+//        cell.photoImageView.image = photoImage
+        
+        let photoImageView = cell.contentView.viewWithTag(1)  as! UIImageView
+        photoImageView.image = UIImage(data: addresses[indexPath.row].photo!)!
+
+        let tangoLabel = cell.contentView.viewWithTag(2) as! UILabel
         cell.tangoLabel.text = addresses[indexPath.row].tango
-        cell.photoImageView.image = photoImage
-//        cell.photoImageView.image = photoImage(jpegData)
-//        newAddress.photo = photoImageView.image?.jpegData(compressionQuality: 1)!
         
         return cell
         
-//        cell.photoImageView.image = UIImage(addresses[indexPath.row].photo)
-        
-//        var photoImage = [UIImage]()
-//        photoImage.append(UIImage(data: Data(base64Encoded: addressesValue.imageString, options: .ignoreUnknownCharacters)!)!)
-        
-//        for addressesValue in addresses {
-//            var image = [UIImage]()
-//            image.append(UIImage(data: Data(base64Encoded: addressesValue.imageString, options: .ignoreUnknownCharacters)!)!)
-//
-//            cell.photoImageView.image = photoImage[indexPath.row]
-//        }
-        
-//        photoImage = UIImage(data: Data(base64Encoded: addressesValue.imageString, options: .ignoreUnknownCharacters)!)!
-//
-//        let photoImageView = cell.contentView.viewWithTag(1)  as! UIImageView
-////        cell.photoImage = UIImage(named: addresses[indexPath.row])
-//        let photoImage = UIImage(named: addresses[indexPath.row])
-//        photoImageView.image = photoImage
-//
-//        let tangoLabel = cell.contentView.viewWithTag(2) as! UILabel
-//        cell.tangoLabel.text = addresses[indexPath.row].tango
-        
-        
-//        cell.photoImageView.image = addresses[indexPath.row].photo
-//        cell.kazuLabel.text = String(addresses[indexPath.row].kazu)
-        
-//        return image
 //        return addresses.count
     }
     
