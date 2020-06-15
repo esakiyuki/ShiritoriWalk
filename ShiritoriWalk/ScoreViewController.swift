@@ -63,7 +63,7 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
         let number3 = numberlabel.text!
         
         //scorelabel.textにnumberlabelとstepslabelを掛け算したスコアを表示
-        number1 = Int(number2)! + Int(number3)!
+        number1 = Int(number2)! * Int(number3)!
         scorelabel.text = String(number1)
         
 //            self.collectionView.reloadData() // データの再読み込み
