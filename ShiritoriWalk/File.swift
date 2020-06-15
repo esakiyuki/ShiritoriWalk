@@ -11,8 +11,7 @@ import RealmSwift
 
 class Address: Object {
     @objc dynamic var tango: String = ""
-//    @objc dynamic var kazu: Int = 0
-    @objc dynamic var photo: NSData? = nil
+    @objc dynamic var photo: Data? = nil
     
 //    @objc dynamic var photo: [UIImage] = []
 //    @objc dynamic var image = Data()

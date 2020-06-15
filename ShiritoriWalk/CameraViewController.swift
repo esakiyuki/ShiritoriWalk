@@ -13,7 +13,6 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var tangoTextField: UITextField!
-//    @IBOutlet var kazuTextField: UITextField!
     
     let realm = try! Realm()
     
@@ -57,10 +56,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBAction func addAddress() {
         let newAddress = Address()
         newAddress.tango = tangoTextField.text!
-//        newAddress.kazu = Int(kazuTextField.text!)!
-        
-        
-//        newAddress.photo = UIImage(photoImageView.image!)!
+        newAddress.photo = photoImageView.image?.jpegData(compressionQuality: 1)!
         
         try! realm.write {
             realm.add(newAddress)
@@ -94,11 +90,6 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBAction func toTop() {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-//    @IBAction func input() {
-//
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,28 +103,6 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
 
         // Do any additional setup after loading the view.
     }
-    
-    
-//    public extension UIImage {
-//
-//        public func toPNGData() -> Data {
-//            guard let photoImageView = self.pngData() else {
-//                return Data()
-//            }
-////            return data
-//            return photoImageView
-////            return image
-//        }
-        
-//        public func toJPEGData() -> Data {
-//            guard let data = self.jpegData(compressionQuality: 1.0) else {
-//                return Data()
-//            }
-//        }
-        
-//    }
-    
-    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 //        if UIImagePickerController.isSourceTypeAvailable(sourceType) {

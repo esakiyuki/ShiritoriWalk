@@ -10,32 +10,12 @@ import UIKit
 import RealmSwift
 import CoreMotion
 
-//class CollectionViewController: UIViewController {
 class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var stepslabel: UILabel!
-//    @IBOutlet var numberlabel: UILabel!
-//    @IBOutlet var scorelabel: UILabel!
-    
-//    var number: Int = 0
-    
-//    var number2 = stepslabel.text!
-//    var number3 = numberlabel.text!
-    
-//    var number2 = String(stepslabel.text!)
-//    var number3 = String(numberlabel.text!)
-    
-//    @IBAction func select() {
-////        String(number2) = stepslabel.text
-////        String(number3) = numberlabel.text
-////        number1 = number2 * number3
-//        number1 = Int(number2) * Int(number3)
-//        scorelabel.text = String(number1)
-//    }
     
     var stepString = String()
-//    var kosuuString = String()
     
     let realm = try! Realm()
     let addresses = try! Realm().objects(Address.self)
@@ -51,9 +31,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
             let next = segue.destination as? ScoreViewController
             //用意した遷移先の変数に値を渡す
             next?.stepString = self.stepslabel.text!
-//            next?.kosuuString = self.numberlabel.text!
         }
-        
     }
     
     @IBAction func toNext(_ sender: Any) {
@@ -62,8 +40,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     let pedometer = CMPedometer()
     var results = "n/a"
-    
-//    let photos = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -141,8 +117,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 18 //表示するセルの数
-//        return self.count
         return addresses.count
     }
     
@@ -154,6 +128,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         
         cell.tangoLabel.text = addresses[indexPath.row].tango
         cell.photoImageView.image = photoImage
+//        cell.photoImageView.image = photoImage(jpegData)
+//        newAddress.photo = photoImageView.image?.jpegData(compressionQuality: 1)!
         
         return cell
         

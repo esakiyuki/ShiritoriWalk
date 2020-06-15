@@ -22,6 +22,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>カメラへのアクセスを許可</string>
+	<key>NSMotionUsageDescription</key>
+	<string>歩数のアクセス許可</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
