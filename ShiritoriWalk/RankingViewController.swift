@@ -31,7 +31,6 @@ class RankingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
     @IBAction func toTop() {
         self.dismiss(animated: true, completion: nil)
     }

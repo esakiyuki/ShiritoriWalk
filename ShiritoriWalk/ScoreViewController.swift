@@ -34,7 +34,11 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet var numberlabel: UILabel!
     @IBOutlet var scorelabel: UILabel!
     
-//    var collectionView: UICollectionView!collectionView
+    var number: Int = 0
+    
+    var number1: Int = 0
+    var number2: Int = 5
+    var number3: Int = 3
     
     let realm = try! Realm()
     var addresses = try! Realm().objects(Address.self)
@@ -42,22 +46,23 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
 //    let results = realm.objects(Address.self)
 //    let count = results.count
     
-    
-//    print(results.count)
-//    results.count
-    
-//    var addresses: Results<CollectionViewCell>!
-    
-    
-//    let pedometer = CMPedometer()
-//    var results = "n/a"
-    
     var stepString = String()
     
-    var kosuuString = String()
+//    var kosuuString = String()
     
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
+        
+        //scorelabel.textにnumberlabelとstepslabelを掛け算したスコアを表示
+        number1 = Int(number2) * Int(number3)
+        scorelabel.text = String(number1)
+        
+        //realmに保存してあるデータ数をlabelに表示
+        let results = realm.objects(Address.self)
+        let count = results.count
+        number = count
+        numberlabel.text = String(number)
+        
 //            self.collectionView.reloadData() // データの再読み込み
     }
 
@@ -66,7 +71,7 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         stepslabel.text = stepString
         
-        numberlabel.text = kosuuString
+//        numberlabel.text = kosuuString
 
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 

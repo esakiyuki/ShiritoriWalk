@@ -15,27 +15,27 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var stepslabel: UILabel!
-    @IBOutlet var scorelabel: UILabel!
-    @IBOutlet var numberlabel: UILabel!
-    var number: Int = 0
-    var number1: Int = 0
-    var number2: Int = 0
-    var number3: Int = 0
+//    @IBOutlet var numberlabel: UILabel!
+//    @IBOutlet var scorelabel: UILabel!
+    
+//    var number: Int = 0
     
 //    var number2 = stepslabel.text!
 //    var number3 = numberlabel.text!
+    
 //    var number2 = String(stepslabel.text!)
 //    var number3 = String(numberlabel.text!)
     
-    @IBAction func select() {
-//        String(number2) = stepslabel.text
-//        String(number3) = numberlabel.text
-//        number1 = number2 * number3
-        number1 = Int(number2) * Int(number3)
-        scorelabel.text = String(number1)
-    }
+//    @IBAction func select() {
+////        String(number2) = stepslabel.text
+////        String(number3) = numberlabel.text
+////        number1 = number2 * number3
+//        number1 = Int(number2) * Int(number3)
+//        scorelabel.text = String(number1)
+//    }
     
     var stepString = String()
+//    var kosuuString = String()
     
     let realm = try! Realm()
     let addresses = try! Realm().objects(Address.self)
@@ -51,7 +51,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
             let next = segue.destination as? ScoreViewController
             //用意した遷移先の変数に値を渡す
             next?.stepString = self.stepslabel.text!
-            next?.kosuuString = self.numberlabel.text!
+//            next?.kosuuString = self.numberlabel.text!
         }
         
     }
@@ -69,12 +69,12 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         super.viewWillAppear(true)
         self.collectionView.reloadData() // データの再読み込み
         
-        //realmに保存してあるデータ数をlabelに表示
-        let results = realm.objects(Address.self)
-        let count = results.count
-        number = count
-        numberlabel.text = String(number)
-        numberlabel.isHidden = true
+//        //realmに保存してあるデータ数をlabelに表示
+//        let results = realm.objects(Address.self)
+//        let count = results.count
+//        number = count
+//        numberlabel.text = String(number)
+//        numberlabel.isHidden = true
         
 //        self.navigationItem.title = "title font test"
 //        self.navigationController?.navigationBar.titleTextAttributes
@@ -83,7 +83,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.collectionView.reloadData()
         
         collectionView.delegate = self
