@@ -13,4 +13,6 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet var tangoLabel: UILabel!
     @IBOutlet var photoImageView: UIImageView!
     
+//    self.tangoLabel.backgroundColor = UIColor.lightGray
+    
 }

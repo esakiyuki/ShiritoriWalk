@@ -50,6 +50,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         super.viewDidLoad()
         self.collectionView.reloadData()
         
+//        tangoLabel.backgroundColor = UIColor.blue
+        
         collectionView.delegate = self
         collectionView.dataSource = self
 //        collectionView.backgroundColor = .lightGray

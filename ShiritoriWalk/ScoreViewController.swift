@@ -103,6 +103,7 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
                 defaults.set(highScore2, forKey: "score3")
             } else if number1 > highScore2 {
                 defaults.set(number1, forKey: "score2")
+                defaults.set(highScore2, forKey: "score3")
             } else if number1 > highScore3 {
                 defaults.set(number1, forKey: "score3")
             }
