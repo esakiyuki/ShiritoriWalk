@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class CameraViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class CameraViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var tangoTextField: UITextField!
@@ -66,19 +66,32 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         newAddress.tango = tangoTextField.text!
         newAddress.photo = photoImageView.image?.jpegData(compressionQuality: 1)!
         
+        //saveボタンを押すと前の画面に自動的にもどる
+        //self.navigationController?.popViewController(animated: true)
+        
+        if tangoTextField.text == "", photoImageView.image == nil {
+            let alert = UIAlertController(
+                        title: "保存できません",
+                        message: "名前と写真を入力してください",
+                        preferredStyle: .alert
+                    )
+                    alert.addAction(UIAlertAction(
+                        title: "OK",
+                        style: .default,
+                        handler: nil
+                    ))
+                    present(alert, animated: true, completion: nil)
+            //        tangoTextField.text = ""
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
+        
         try! realm.write {
             realm.add(newAddress)
         }
         
-//        dismiss(animated: true, completion: nil)
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
         
-//        let alert = UIAlertController(
-//                    title: "入力完了", message: "文字の入力が完了しました", preferredStyle: .alert
-//                )
-//                alert.addAction(UIAlertAction(
-//                    title: "OK", style: .default, handler: nil
-//                ))
         
         
 //        let mojiWaking = ["moji": mojiTextField.text!]
@@ -103,6 +116,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         super.viewDidLoad()
         
         photoImageView.image = photoImage
+        tangoTextField.delegate = self
         
 //        var mojiArray: [Dictionary<String, String>] = []
 //        if saveData.array(forKey: "SHIRITORI") != nil {
@@ -110,6 +124,11 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
 //        }
 
         // Do any additional setup after loading the view.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
