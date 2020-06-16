@@ -14,6 +14,14 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var tangoTextField: UITextField!
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     let realm = try! Realm()
     
 //    let imageData: NSData = UIImagePNGRepresentation(photoImageView) as! NSData
