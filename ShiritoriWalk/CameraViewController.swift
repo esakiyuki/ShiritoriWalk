@@ -49,19 +49,23 @@ class CameraViewController: UIViewController, UITextFieldDelegate, UINavigationC
         //self.navigationController?.popViewController(animated: true)
         
 //        if photoImage == nil {
-        if photoImageView.image == nil {
-            let alert = UIAlertController(
-                title: "保存できません",
-                message: "写真を撮影してください",
-                preferredStyle: .alert
-            )
-            alert.addAction(UIAlertAction(
-                title: "OK",
-                style: .default,
-                handler: nil
-            ))
-            present(alert, animated: true, completion: nil)
-        }
+        
+        
+//        if photoImageView.image == nil {
+//            let alert = UIAlertController(
+//                title: "保存できません",
+//                message: "写真を撮影してください",
+//                preferredStyle: .alert
+//            )
+//            alert.addAction(UIAlertAction(
+//                title: "OK",
+//                style: .default,
+//                handler: nil
+//            ))
+//            present(alert, animated: true, completion: nil)
+//        }
+        
+        
 //        else {
 //            try! realm.write {
 //                realm.add(newAddress)
@@ -69,10 +73,10 @@ class CameraViewController: UIViewController, UITextFieldDelegate, UINavigationC
 //            self.navigationController?.popViewController(animated: true)
 //        }
         
-        if tangoTextField.text == "" {
+        if tangoTextField.text == "" || photoImageView.image == nil {
             let alert = UIAlertController(
                         title: "保存できません",
-                        message: "名前を入力してください",
+                        message: "名前と写真を入力してください",
                         preferredStyle: .alert
                     )
                     alert.addAction(UIAlertAction(
