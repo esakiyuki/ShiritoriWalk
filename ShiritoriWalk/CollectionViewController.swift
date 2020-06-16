@@ -19,7 +19,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     let realm = try! Realm()
     let addresses = try! Realm().objects(Address.self)
-    var notificationToken: NotificationToken?
+//    var notificationToken: NotificationToken?
     
     @IBAction func cancel() {
            dismiss(animated: true, completion: nil)
@@ -50,11 +50,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         super.viewDidLoad()
         self.collectionView.reloadData()
         
-//        tangoLabel.backgroundColor = UIColor.blue
-        
         collectionView.delegate = self
         collectionView.dataSource = self
-//        collectionView.backgroundColor = .lightGray
 
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
@@ -90,23 +87,17 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         return addresses.count
     }
     
-    var photoImage: UIImage!
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
-//        cell.tangoLabel.text = addresses[indexPath.row].tango
-//        cell.photoImageView.image = photoImage
-        
-        let photoImageView = cell.contentView.viewWithTag(1)  as! UIImageView
-        photoImageView.image = UIImage(data: addresses[indexPath.row].photo!)!
-
-        let tangoLabel = cell.contentView.viewWithTag(2) as! UILabel
+        let tangoLabel = cell.contentView.viewWithTag(1) as! UILabel
         cell.tangoLabel.text = addresses[indexPath.row].tango
         
-        return cell
+        let photoImageView = cell.contentView.viewWithTag(2)  as! UIImageView
+        cell.photoImageView.image = UIImage(data: addresses[indexPath.row].photo!)!
         
+        return cell
 //        return addresses.count
     }
     

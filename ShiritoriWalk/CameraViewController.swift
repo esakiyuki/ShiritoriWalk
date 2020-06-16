@@ -24,29 +24,8 @@ class CameraViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
     let realm = try! Realm()
     
-//    let imageData: NSData = UIImagePNGRepresentation(photoImageView) as! NSData
-    
-//    let imageData = UIImagePNGRepresentation(photoImageView)
-    
-//    let imageData = UIImage(named:"photoImageView")!
-//    let photoImageView = UIImagePNGRepresentation(imageView.image!) as NSData?
-    
-    var photoImage : UIImage!
-    let images = UIImage(named: "photoImage")
-    
-//    let image = UIImage(named: "photoImageView")
-//    let UIImageView = UIImage()
-//    let pngData = image.toPNGData()
-    
-//    var mojiArray: [Dictionary<String, String>] = []
-//    let saveData = UserDefaults.standard
-    
-    
-//    @IBOutlet var mojilabel: UILabel!
-    
     @IBAction func takePhoto() {
         
-//        presentPickerController(sourceType: .camera)
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let picker = UIImagePickerController()
             picker.sourceType = .camera
@@ -69,12 +48,11 @@ class CameraViewController: UIViewController, UITextFieldDelegate, UINavigationC
         //saveボタンを押すと前の画面に自動的にもどる
         //self.navigationController?.popViewController(animated: true)
         
-//        if tangoTextField.text == "" && photoImageView.image == nil {
-        
+//        if photoImage == nil {
         if photoImageView.image == nil {
             let alert = UIAlertController(
                 title: "保存できません",
-                message: "写真を入力してください",
+                message: "写真を撮影してください",
                 preferredStyle: .alert
             )
             alert.addAction(UIAlertAction(
@@ -83,7 +61,8 @@ class CameraViewController: UIViewController, UITextFieldDelegate, UINavigationC
                 handler: nil
             ))
             present(alert, animated: true, completion: nil)
-        } //else {
+        }
+//        else {
 //            try! realm.write {
 //                realm.add(newAddress)
 //            }
@@ -116,20 +95,6 @@ class CameraViewController: UIViewController, UITextFieldDelegate, UINavigationC
         
 //        self.navigationController?.popViewController(animated: true)
         
-        
-        
-//        let mojiWaking = ["moji": mojiTextField.text!]
-//        mojiArray.append(mojiWaking)
-//        saveData.set(mojiArray, forKey: "SHIRITORI")
-//
-//        let alert = UIAlertController(
-//            title: "入力完了", message: "文字の入力が完了しました", preferredStyle: .alert
-//        )
-//        alert.addAction(UIAlertAction(
-//            title: "OK", style: .default, handler: nil
-//        ))
-//        present(alert, animated: true, completion: nil)
-//        mojiTextField.text = ""
     }
     
     @IBAction func toTop() {
@@ -139,13 +104,8 @@ class CameraViewController: UIViewController, UITextFieldDelegate, UINavigationC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        photoImageView.image = photoImage
+//        photoImageView.image = photoImage
         tangoTextField.delegate = self
-        
-//        var mojiArray: [Dictionary<String, String>] = []
-//        if saveData.array(forKey: "SHIRITORI") != nil {
-//            mojiArray = saveData.array(forKey: "SHIRITORI") as! [Dictionary<String, String>]
-//        }
 
         // Do any additional setup after loading the view.
     }
@@ -156,13 +116,6 @@ class CameraViewController: UIViewController, UITextFieldDelegate, UINavigationC
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-//            let picker = UIImagePickerController()
-//            picker.sourceType = sourceType
-//            picker.delegate = self
-//            self.present(picker, animated: true, completion: nil)
-//        }
-
         photoImageView.image = info[.editedImage] as? UIImage
         dismiss(animated: true, completion: nil)
     }

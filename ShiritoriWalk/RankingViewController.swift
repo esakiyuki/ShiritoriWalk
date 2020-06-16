@@ -19,11 +19,6 @@ class RankingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.collectionView.reloadData()
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
-//        return addresses.count
-        
         rankingLabel1.text = String(defaults.integer(forKey: "score1"))
         rankingLabel2.text = String(defaults.integer(forKey: "score2"))
         rankingLabel3.text = String(defaults.integer(forKey: "score3"))

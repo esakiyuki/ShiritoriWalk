@@ -22,19 +22,19 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
         cell.tangoLabel.text = addresses[indexPath.row].tango
-//        cell.photoImageView.image = photoImage
+        cell.photoImageView.image = UIImage(data: addresses[indexPath.row].photo!)!
         
         return cell
     }
     
     let realm = try! Realm()
         var addresses = try! Realm().objects(Address.self)
-        var notificationToken: NotificationToken?
+//        var notificationToken: NotificationToken?
+    
     //    let results = realm.objects(Address.self)
     //    let count = results.count
         
         var stepString = String()
-    //    var kosuuString = String()
     
     let defaults: UserDefaults = UserDefaults.standard
     
@@ -45,9 +45,6 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
     var number: Int = 0
     
     var number1: Int = 0
-    
-//    var number2: Int = 0
-//    var number3: Int = 0
     
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
@@ -73,8 +70,6 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
         super.viewDidLoad()
         
         stepslabel.text = stepString
-        
-//        numberlabel.text = kosuuString
 
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
@@ -87,10 +82,7 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
         let realm = try! Realm()
         try! realm.write{
             realm.deleteAll()
-            
-//            let score: Int = 1000
-//            let number1: Int = 1000
-//            let number1 = scorelabel.text!
+
             scorelabel.text = String(number1)
             
             let highScore1: Int = defaults.integer(forKey: "score1")
@@ -114,12 +106,6 @@ class ScoreViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
-    
-//    @IBAction func toTop(_ sender: Any) {
-//        let vc = UIStoryboard(name: "ViewController", bundle: Bundle.main)
-//            .instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
     
 
     /*
