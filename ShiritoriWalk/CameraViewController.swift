@@ -69,10 +69,31 @@ class CameraViewController: UIViewController, UITextFieldDelegate, UINavigationC
         //saveボタンを押すと前の画面に自動的にもどる
         //self.navigationController?.popViewController(animated: true)
         
-        if tangoTextField.text == "", photoImageView.image == nil {
+//        if tangoTextField.text == "" && photoImageView.image == nil {
+        
+        if photoImageView.image == nil {
+            let alert = UIAlertController(
+                title: "保存できません",
+                message: "写真を入力してください",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: nil
+            ))
+            present(alert, animated: true, completion: nil)
+        } //else {
+//            try! realm.write {
+//                realm.add(newAddress)
+//            }
+//            self.navigationController?.popViewController(animated: true)
+//        }
+        
+        if tangoTextField.text == "" {
             let alert = UIAlertController(
                         title: "保存できません",
-                        message: "名前と写真を入力してください",
+                        message: "名前を入力してください",
                         preferredStyle: .alert
                     )
                     alert.addAction(UIAlertAction(
@@ -83,12 +104,15 @@ class CameraViewController: UIViewController, UITextFieldDelegate, UINavigationC
                     present(alert, animated: true, completion: nil)
             //        tangoTextField.text = ""
         } else {
+            try! realm.write {
+                realm.add(newAddress)
+            }
             self.navigationController?.popViewController(animated: true)
         }
         
-        try! realm.write {
-            realm.add(newAddress)
-        }
+//        try! realm.write {
+//            realm.add(newAddress)
+//        }
         
 //        self.navigationController?.popViewController(animated: true)
         
